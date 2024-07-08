@@ -4,7 +4,6 @@ This is a Django-based web application for managing a tennis club. It includes f
 
 ![Tennis Club](images/home_page.png)
 
-
 ## Features
 
 - Member Registration and Management
@@ -72,3 +71,47 @@ user = User.objects.create_user('john', 'john@example.com', 'johnpassword')
 user.first_name = 'John'
 user.last_name = 'Doe'
 user.save()
+```
+
+### Match Scheduling
+
+Admins can schedule matches between members. Matches are stored in the database and can be viewed and managed through the admin interface.
+
+Example:
+
+```python
+from .models import Match
+
+# Schedule a new match
+match = Match.objects.create(player1=user1, player2=user2, date='2024-07-08', time='15:00:00')
+match.save()
+```
+
+### Score Tracking
+
+Match scores can be recorded and tracked. Scores are associated with matches and can be viewed in the member profile and admin interface.
+
+Example:
+
+```python
+from .models import Score
+
+# Add score to a match
+score = Score.objects.create(match=match, player=user1, points=6)
+score.save()
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the MIT License.
+```
+
+Replace `images/tennis_club.png` with the actual path to your image file. If the image is hosted online, you can directly use the URL in place of the file path.
