@@ -1,0 +1,35 @@
+{% extends "master.html" %}
+
+{% block title %}
+    My Tennis Club - List of all members
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Members</h1>
+        <div class="list-group">
+            <label>Members:</label>
+            <ul class="list">
+                {% for x in mymembers %}
+                <li class="list-item">
+                    <p><strong>{{ x.firstname }}</strong> {{ x.lastname }} {% if x.active == False %} <span class="label"> (Inactive)</span>{% endif %}</p>
+                    <a href="details/{{ x.id }}">details</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr/>
+        <h1>Active Members</h1>
+        <div class="list-group">
+            <label>Active members:</label>
+            <ul class="list">
+                {% for x in activemembers %}
+                <li class="list-item">
+                    <p><strong>{{ x.firstname }}</strong> {{ x.lastname }}</p>
+                    <a href="details/{{ x.id }}">details</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

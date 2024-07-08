@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'globalstyles.css' %}">
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-logo">
+      <img src="/path/to/logo.png" alt="Logo" style="height: 50px;">
+      <div class="navbar-title">My Tennis Club</div>
+    </div>
+    
+    <a href="/">Home</a>
+  </div>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
