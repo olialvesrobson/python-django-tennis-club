@@ -7,6 +7,12 @@ _venv:
 activate:
 	source myenv/bin/activate
 
+install_deps:
+	source myenv/bin/activate && pip install -r requirements.txt
+
+runserver:
+	source myenv/bin/activate && python manage.py runserver
+
 server:
 	python manage.py runserver
 
