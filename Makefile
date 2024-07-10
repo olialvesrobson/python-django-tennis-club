@@ -1,7 +1,11 @@
 
-set-python-env:
-	python3.12 -m venv myenv 
-	source path/to/venv/bin/activate 
+.PHONY: venv activate
+
+_venv:
+	python3.12 -m venv myenv
+
+activate:
+	source myenv/bin/activate
 
 server:
 	python manage.py runserver
